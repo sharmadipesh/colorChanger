@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Color Changer</title>
+    <style>
+        
+        div
+        {
+            background-color:red;
+            float: left;
+            height: 110px;
+            width: 25%;
+        }
+    
+    </style>
+</head>
+<body>
+    <script>
+    
+
+    // Add div tag in body section
+        for(var i=1;i<=24;i++)
+        {
+            var div=document.createElement("div");
+            document.body.appendChild(div);
+        }
+    
+    
+    // random color Generate
+
+    function randomColor(color)
+    {
+       return Math.floor(Math.random()*color) ;
+    }
+
+
+    //color giver
+
+    function colorMaker()
+    {
+        var color='rgb('+randomColor(255)+','+randomColor(255)+','+randomColor(255)+')';
+        return color;
+    }
+
+    var divs=document.querySelectorAll("div");
+    
+    // for(var i=0;i<divs.length;i++)
+    // {
+    //     divs[i].onclick=function(e)
+    //     {
+    //         e.target.style.backgroundColor=colorMaker();
+    //     };
+    // }
+
+    setInterval(function(){
+        for(var i=0;i<divs.length;i++)
+        {
+            divs[i].style.backgroundColor=colorMaker();
+        }
+    },500);
+    </script>
+</body>
+</html>
